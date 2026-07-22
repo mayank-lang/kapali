@@ -1,0 +1,297 @@
+/* src/styles/global.css */
+@import './designTokens.css';
+@import '../App.css';
+
+:root {
+  /* Alias variables used throughout the app */
+  --bg-deep: var(--color-background);
+  --bg-panel: var(--color-surface);
+  --bg-panel-light: #151b22;
+  --border: var(--color-border);
+  --accent-purple: var(--color-primary);
+  --accent-blue: var(--color-accent);
+  --text-main: var(--color-text-main);
+  --text-muted: var(--color-text-muted);
+  --danger: var(--color-error);
+  --success: var(--color-success);
+  --warning: var(--color-warning);
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+}
+
+/* Base resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-deep);
+  color: var(--text-main);
+  min-height: 100vh;
+  min-width: 100vw;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Layout root - acts as the main app-container with space-y theme styling */
+.layout-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  
+  background-color: var(--bg-deep);
+  background-image: none;
+}
+
+/* Glassmorphism styling overrides */
+.glass {
+  background: var(--color-surface-glass);
+}
+
+/* Micro-animations and transitions */
+.transition {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toolbar-btn, .tab-btn {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toolbar-btn:hover:not(:disabled) {
+  transform: none;
+  box-shadow: none;
+}
+
+.tab-btn.active {
+  text-shadow: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.4);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Unified Sidebar Module & Form Styles */
+.sidebar-module-header {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+
+.sidebar-module-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.sidebar-module-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.control-card {
+  background: #11171e;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: none;
+}
+
+.control-card:hover {
+  border-color: var(--border);
+}
+
+.control-card-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-blue);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.form-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  width: 100%;
+}
+
+.form-label-row span:last-child {
+  font-weight: 600;
+  color: var(--accent-blue);
+  font-family: var(--font-mono);
+}
+
+input, select, textarea {
+  color: var(--text-main);
+  background-color: #07090e;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.input-select, .input-text, .input-number, .input-textarea {
+  width: 100%;
+  padding: 0.45rem;
+  background-color: #07090e;
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-select:focus, .input-text:focus, .input-number:focus, .input-textarea:focus {
+  border-color: var(--accent-blue);
+  box-shadow: none;
+}
+
+.input-select option {
+  background-color: #07090e;
+  color: var(--text-main);
+}
+
+.input-textarea {
+  resize: vertical;
+  font-family: var(--font-mono);
+}
+
+.input-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-main);
+  cursor: pointer;
+  user-select: none;
+}
+
+.input-checkbox-container input[type="checkbox"] {
+  accent-color: var(--accent-blue);
+  cursor: pointer;
+}
+
+.input-range {
+  width: 100%;
+  accent-color: var(--accent-blue);
+  cursor: pointer;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  outline: none;
+}
+
+.btn-primary, .btn-secondary, .btn-danger {
+  padding: 0.45rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: none;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: hsl(185, 90%, 45%);
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background-color: var(--bg-panel-light);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: hsl(355, 85%, 45%);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+.btn-primary:disabled, .btn-secondary:disabled, .btn-danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+select optgroup {
+  background-color: #07090e;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-style: normal;
+}

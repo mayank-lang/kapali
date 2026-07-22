@@ -1,0 +1,27 @@
+/* src/styles/designTokens.css */
+:root {
+  /* Quiet, high-contrast workstation palette */
+  --color-primary: hsl(258, 68%, 68%);
+  --color-primary-light: hsl(258, 68%, 76%);
+  --color-primary-dark: hsl(258, 58%, 56%);
+  --color-accent: hsl(190, 72%, 52%);
+  --color-background: #090c10;
+  --color-surface: #10151b;
+  --color-surface-glass: #10151b;
+  --color-border: rgba(226, 232, 240, 0.12);
+  --color-success: hsl(150, 75%, 45%);
+  --color-warning: hsl(42, 90%, 55%);
+  --color-error: hsl(355, 85%, 55%);
+  --color-text-main: #e8edf3;
+  --color-text-muted: #929daa;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  --font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-size-base: 0.9rem;
+}
